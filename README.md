@@ -6,7 +6,7 @@
 
 ### 🌐 Project Links & Live Demo
 
-- **Live Application (Google AI Studio)**: [https://ai.studio/apps/37854e78-5391-4e2a-82e3-c4d5a491140d](https://ai.studio/apps/37854e78-5391-4e2a-82e3-c4d5a491140d)
+- **Live Application (GitHub Pages)**: [https://veera6767.github.io/veera-cadtrack/](https://veera6767.github.io/veera-cadtrack/)
 - **GitHub Repository**: [https://github.com/veera6767/veera-cadtrack](https://github.com/veera6767/veera-cadtrack)
 
 ---

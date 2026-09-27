@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/veera-cadtrack/',
   plugins: [react(), tailwindcss()],
   server: {
     port: 3000,
