@@ -4,6 +4,13 @@
 
 ---
 
+### 🌐 Project Links & Live Demo
+
+- **Live Application (Google AI Studio)**: [https://ai.studio/apps/37854e78-5391-4e2a-82e3-c4d5a491140d](https://ai.studio/apps/37854e78-5391-4e2a-82e3-c4d5a491140d)
+- **GitHub Repository**: [https://github.com/veera6767/veera-cadtrack](https://github.com/veera6767/veera-cadtrack)
+
+---
+
 ## ⚡ Overview
 
 **Veera CADTrack** is a web-based, gesture-driven 3D CAD inspection platform. Using computer-vision hand tracking in real time, engineers and designers can manipulate, inspect, cross-section, measure, and annotate complex mechanical assemblies completely touchless—directly through a standard webcam.
