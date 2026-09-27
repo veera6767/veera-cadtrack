@@ -6,8 +6,8 @@
 
 ### 🌐 Project Links & Live Demo
 
-- **Live Application (GitHub Pages)**: [https://veera6767.github.io/veera-cadtrack/](https://veera6767.github.io/veera-cadtrack/)
-- **GitHub Repository**: [https://github.com/veera6767/veera-cadtrack](https://github.com/veera6767/veera-cadtrack)
+- **Live Application (GitHub Pages)**: [https://veera6767.github.io/VEERA-CADTRACK/](https://veera6767.github.io/VEERA-CADTRACK/)
+- **GitHub Repository**: [https://github.com/veera6767/VEERA-CADTRACK](https://github.com/veera6767/VEERA-CADTRACK)
 
 ---
 
@@ -73,10 +73,10 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/veera6767/veera-cadtrack.git
+git clone https://github.com/veera6767/VEERA-CADTRACK.git
 
 # Navigate to project folder
-cd veera-cadtrack
+cd VEERA-CADTRACK
 
 # Install dependencies
 npm install
