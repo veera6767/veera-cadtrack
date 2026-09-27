@@ -1,0 +1,6 @@
+{
+  "name": "VEERA-CADTRACK",
+  "description": "Desktop CAD Viewer with Hand-Gesture Control (2-View / 4-View Modes) supporting STL, STEP, and OBJ models.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

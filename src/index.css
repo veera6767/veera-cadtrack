@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+@layer base {
+  :root, [data-theme="blue"] {
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-heading: 'Rajdhani', sans-serif;
+    --hud-accent: #00e5ff;
+    --hud-accent-rgb: 0, 229, 255;
+    --hud-accent-glow: rgba(0, 229, 255, 0.4);
+    --hud-accent-bg: rgba(0, 229, 255, 0.12);
+    --hud-accent-subtle: rgba(0, 229, 255, 0.05);
+    --hud-accent-border: rgba(0, 229, 255, 0.35);
+    --hud-accent-hover: #38bdf8;
+    --hud-accent-shadow: rgba(0, 229, 255, 0.18);
+    --hud-warn: #ef4444;
+    --hud-warn-rgb: 239, 68, 68;
+    --hud-warn-glow: rgba(239, 68, 68, 0.45);
+    --hud-badge-bg: rgba(0, 229, 255, 0.18);
+  }
+
+  [data-theme="red"] {
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-heading: 'Rajdhani', sans-serif;
+    --hud-accent: #ff2e43;
+    --hud-accent-rgb: 255, 46, 67;
+    --hud-accent-glow: rgba(255, 46, 67, 0.45);
+    --hud-accent-bg: rgba(255, 46, 67, 0.14);
+    --hud-accent-subtle: rgba(255, 46, 67, 0.06);
+    --hud-accent-border: rgba(255, 46, 67, 0.4);
+    --hud-accent-hover: #ff5768;
+    --hud-accent-shadow: rgba(255, 46, 67, 0.22);
+    /* In Red Mode, semantic warning uses Amber/Orange so it does not blend into red HUD */
+    --hud-warn: #f59e0b;
+    --hud-warn-rgb: 245, 158, 11;
+    --hud-warn-glow: rgba(245, 158, 11, 0.45);
+    --hud-badge-bg: rgba(255, 46, 67, 0.2);
+  }
+}
+
+body {
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  background-color: #030405;
+  color: #f1f5f9;
+  overflow: hidden;
+}
+
+.font-mono-tech {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: -0.015em;
+  font-feature-settings: 'tnum' 1, 'zero' 1;
+}
+
+.font-heading-tech {
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+/* Futuristic Bespoke HUD Glass Panel */
+.glass-panel {
+  background: rgba(4, 8, 18, 0.88);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--hud-accent-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.88), 
+              0 0 20px var(--hud-accent-shadow),
+              inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-panel-glow {
+  background: rgba(4, 9, 20, 0.92);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--hud-accent-border);
+  box-shadow: 0 0 28px var(--hud-accent-shadow), 
+              inset 0 0 16px var(--hud-accent-subtle),
+              inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  position: relative;
+}
+
+/* Subtle Shimmer sweep passing across header and toolbar panels */
+.hud-shimmer-panel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(var(--hud-accent-rgb), 0.02) 30%,
+    rgba(var(--hud-accent-rgb), 0.1) 50%,
+    rgba(var(--hud-accent-rgb), 0.02) 70%,
+    transparent 100%
+  );
+  animation: hud-sweep 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes hud-sweep {
+  0% {
+    left: -150%;
+  }
+  30% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+/* Background Subtle Holographic Radar / Dust Drift */
+.hud-backdrop-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(var(--hud-accent-rgb), 0.04) 0%, transparent 60%),
+    linear-gradient(rgba(var(--hud-accent-rgb), 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--hud-accent-rgb), 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
+  background-position: center center;
+  animation: hud-grid-drift 40s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes hud-grid-drift {
+  0% {
+    background-position: center center, 0 0, 0 0;
+  }
+  100% {
+    background-position: center center, 48px 48px, 48px 48px;
+  }
+}
+
+/* Viewport Corner Targeting Reticle Accents */
+.hud-corner-bracket {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  pointer-events: none;
+  z-index: 25;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 6px var(--hud-accent));
+  animation: reticle-breathe 4s ease-in-out infinite;
+}
+
+@keyframes reticle-breathe {
+  0%, 100% {
+    opacity: 0.65;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+/* Hairline dividers for view splits */
+.view-divider-v {
+  background: linear-gradient(180deg, transparent 0%, var(--hud-accent) 30%, var(--hud-accent) 70%, transparent 100%);
+  box-shadow: 0 0 12px var(--hud-accent);
+}
+
+.view-divider-h {
+  background: linear-gradient(90deg, transparent 0%, var(--hud-accent) 30%, var(--hud-accent) 70%, transparent 100%);
+  box-shadow: 0 0 12px var(--hud-accent);
+}
+
+/* Theme accent text and glow utilities */
+.text-hud-accent {
+  color: var(--hud-accent);
+}
+
+.text-hud-glow {
+  color: var(--hud-accent);
+  text-shadow: 0 0 12px var(--hud-accent-glow);
+}
+
+.bg-hud-accent {
+  background-color: var(--hud-accent);
+}
+
+.bg-hud-accent-subtle {
+  background-color: var(--hud-accent-bg);
+}
+
+.border-hud-accent {
+  border-color: var(--hud-accent-border);
+}
+
+/* Semantic warning utilities */
+.text-hud-warn {
+  color: var(--hud-warn);
+}
+
+.text-hud-warn-glow {
+  color: var(--hud-warn);
+  text-shadow: 0 0 10px var(--hud-warn-glow);
+}
+
+.border-hud-warn {
+  border-color: var(--hud-warn);
+}
+
+.bg-hud-warn-subtle {
+  background-color: rgba(var(--hud-warn-rgb), 0.15);
+}
+
+/* Bespoke tactical chamfer box */
+.tactical-chamfer-tl {
+  clip-path: polygon(10px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 10px);
+}
+
+.tactical-chamfer-tr {
+  clip-path: polygon(0% 0%, calc(100% - 10px) 0%, 100% 10px, 100% 100%, 0% 100%);
+}
+
+.tactical-chamfer-br {
+  clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0% 100%);
+}
+
+/* Custom technical HUD scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(3, 7, 18, 0.9);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--hud-accent-border);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hud-accent);
+  box-shadow: 0 0 12px var(--hud-accent);
+}
